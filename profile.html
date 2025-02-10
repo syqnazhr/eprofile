@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - UiTM e-Profile</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <h2 class="text-center">Student Profiles</h2>
+        <div class="header-buttons">
+            <a href="index.html" class="btn-primary">Back</a>
+            <a href="login.html" class="btn-primary">Logout</a>
+        </div>
+    </header> 
+
+    <div class="container mt-5">
+        <h2 id="profile-name" class="text-center"></h2>
+
+        <!-- Profile Image Section -->
+        <div class="text-center">
+            <img id="profile-image" src="" alt="Profile Picture" class="img-fluid rounded-3" style="max-width: 200px;">
+        </div>
+
+        <p id="profile-id" class="text-center"></p>
+
+        <!-- Table to display information -->
+        <table class="table table-striped table-hover table-bordered mt-4">
+            <thead class="table-dark-bg">
+                <tr>
+                    <th>Field</th>
+                    <th>Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td id="dob"></td>
+                </tr>
+                <tr>
+                    <td>Course</td>
+                    <td id="course"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td id="email"></td>
+                </tr>
+                <tr>
+                    <td>Phone Number</td>
+                    <td id="phone"></td>
+                </tr>
+            </tbody>
+        </table>        
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const studentId = params.get('id');
+
+        const profiles = {
+            "20231001": { 
+                name: "Muhammad Iskandar Arasyah bin Abdullah", 
+                id: "20231001", 
+                dob: "March 13, 2000", 
+                course: "Bachelor of Computer Science", 
+                email: "izzuddin@uitm.edu", 
+                phone: "0123456789",
+                image: "image/izzuddin.jpeg" 
+            },
+            "20231002": { 
+                name: "Muhammad Amirul bin Ahmad", 
+                id: "20231002", 
+                dob: "April 1, 2001", 
+                course: "Bachelor of Information Technology", 
+                email: "amirul@uitm.edu", 
+                phone: "0134567890",
+                image: "image/amirul.jpg" 
+            },
+            "20231003": { 
+                name: "Muhammad Syafiq bin Abdullah", 
+                id: "20231003", 
+                dob: "July 5, 2002", 
+                course: "Bachelor of Software Engineering", 
+                email: "syafiq@uitm.edu", 
+                phone: "0145678901",
+                image: "image/syafiq.jpeg" 
+            },
+            "20231004": { 
+                name: "Muhammad Farhan bin Abdul Aziz", 
+                id: "20231004", 
+                dob: "September 14, 2001", 
+                course: "Bachelor of Mechanical Engineering", 
+                email: "farhan@uitm.edu", 
+                phone: "0167354763",
+                image: "image/farhan.jpeg" 
+            },
+            "20231005": { 
+                name: "Muhammad Luqman Izzat bin Baharum", 
+                id: "20231005", 
+                dob: "November 11, 2001", 
+                course: "Bachelor of Science Engineering", 
+                email: "luqman@uitm.edu", 
+                phone: "0187473864",
+                image: "image/luqman.jpeg" 
+            },
+            "20231006": { 
+                name: "Aina Farhana binti Ibrahim", 
+                id: "20231006", 
+                dob: "June 4, 2000", 
+                course: "Bachelor of Business Administration", 
+                email: "aina@uitm.edu", 
+                phone: "0156789012",
+                image: "image/aina.jpg" 
+            },
+            "20231007": { 
+                name: "Nurul Hidayah binti Mohd", 
+                id: "20231007", 
+                dob: "August 31, 2001", 
+                course: "Bachelor of Civil Engineering", 
+                email: "nurul@uitm.edu", 
+                phone: "0167890123",
+                image: "image/hidayah.jpeg" 
+            },
+            "20231008": { 
+                name: "Nurin Qasrina binti Zaidi", 
+                id: "20231008", 
+                dob: "August 15, 2001", 
+                course: "Bachelor of Professional Communication", 
+                email: "nurin@uitm.edu", 
+                phone: "0196356388",
+                image: "image/nurin.jpeg" 
+            },
+            "20231009": { 
+                name: "Nur Amalina Sofea binti Md Nasir", 
+                id: "20231009", 
+                dob: "August 10, 2002", 
+                course: "Bachelor of International Business", 
+                email: "amalina@uitm.edu", 
+                phone: "0125537746",
+                image: "image/amalina.jpeg" 
+            },
+            "20231010": { 
+                name: "Adriana Qaisara binti Mohd Latif", 
+                id: "20231010", 
+                dob: "February 12, 2000", 
+                course: "Bachelor of Art & Design", 
+                email: "adriana@uitm.edu", 
+                phone: "0176456747",
+                image: "image/adriana.jpg" 
+            }
+        };
+
+        // Get student profile by ID
+        const studentProfile = profiles[studentId];
+
+        // Display profile name and ID
+        document.getElementById("profile-name").innerText = studentProfile?.name || "Profile Not Found";
+        document.getElementById("profile-id").innerText = `ID: ${studentProfile?.id || "N/A"}`;
+
+        // Display additional details
+        document.getElementById("dob").innerText = studentProfile?.dob || "N/A";
+        document.getElementById("course").innerText = studentProfile?.course || "N/A";
+        document.getElementById("email").innerText = studentProfile?.email || "N/A";
+        document.getElementById("phone").innerText = studentProfile?.phone || "N/A";
+
+        // Display profile image
+        document.getElementById("profile-image").src = studentProfile?.image || "images/default.jpg"; // Default image if not found
+    </script>
+</body>
+<footer class="text-center text-white mt-5">
+    <p>&copy; 2025 UiTM Student e-Profile</p>
+</footer>
+</html>

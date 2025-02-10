@@ -1,0 +1,99 @@
+body {
+    background-color: #060c20; 
+    background-image: url(https://assets.plesk.com/static/default-website-content/public/img/stars-fb15b6.svg);
+    background-position: 50% 28%; 
+    background-repeat: repeat; 
+    background-size: 1760px 852px; 
+    background-attachment: fixed; 
+}
+
+h2-index {
+    color: azure;
+    text-align: center;
+}
+
+h2-login {
+    color: #060c20;
+    text-align: center;
+}
+
+.container {
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 150px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+}
+
+.card {
+    background: #d0dbe4;
+    color: #333;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.btn-primary {
+    width: 50%;
+    padding: 10px;
+    background: #060c3d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background: #353c9c;
+}
+
+footer {
+    background: linear-gradient(135deg, #060c3d, #9a9ecc); /* Gradient from dark to light */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.table-dark-bg {
+    background-color: #060c3d; 
+    color: white; 
+}
+
+.header {
+    display: flex;
+    justify-content: space-between; /* Push items to the edges */
+    align-items: center; /* Align items vertically */
+    padding: 10px 20px; /* Adjust spacing */
+}
+
+.header h2 {
+    margin: 0; /* Remove default margin */
+}
+
+.header-buttons {
+    margin-left: auto; /* Push the button to the right */
+}
