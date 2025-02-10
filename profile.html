@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <!-- Header Section -->
     <header class="header">
         <h2 class="text-center">Student Profiles</h2>
         <div class="header-buttons">
@@ -19,15 +18,13 @@
 
     <div class="container mt-5">
         <h2 id="profile-name" class="text-center"></h2>
-
-        <!-- Profile Image Section -->
+        
         <div class="text-center">
             <img id="profile-image" src="" alt="Profile Picture" class="img-fluid rounded-3" style="max-width: 200px;">
         </div>
 
         <p id="profile-id" class="text-center"></p>
 
-        <!-- Table to display information -->
         <table class="table table-striped table-hover table-bordered mt-4">
             <thead class="table-dark-bg">
                 <tr>
@@ -153,21 +150,17 @@
             }
         };
 
-        // Get student profile by ID
         const studentProfile = profiles[studentId];
 
-        // Display profile name and ID
         document.getElementById("profile-name").innerText = studentProfile?.name || "Profile Not Found";
         document.getElementById("profile-id").innerText = `ID: ${studentProfile?.id || "N/A"}`;
 
-        // Display additional details
         document.getElementById("dob").innerText = studentProfile?.dob || "N/A";
         document.getElementById("course").innerText = studentProfile?.course || "N/A";
         document.getElementById("email").innerText = studentProfile?.email || "N/A";
         document.getElementById("phone").innerText = studentProfile?.phone || "N/A";
 
-        // Display profile image
-        document.getElementById("profile-image").src = studentProfile?.image || "images/default.jpg"; // Default image if not found
+        document.getElementById("profile-image").src = studentProfile?.image || "images/default.jpg"; 
     </script>
 </body>
 <footer class="text-center text-white mt-5">
